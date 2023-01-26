@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 26-Jan-2023 às 19:58
+-- Tempo de geração: 26-Jan-2023 às 23:21
 -- Versão do servidor: 8.0.32-0buntu0.20.04.1
 -- versão do PHP: 7.4.3-4ubuntu2.17
 
@@ -66,7 +66,32 @@ CREATE TABLE `categorias` (
 INSERT INTO `categorias` (`id`, `categoria`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Informatica', '2023-01-26 17:44:46', '2023-01-26 17:44:46', NULL),
 (2, 'Fisica', '2023-01-26 17:44:56', '2023-01-26 17:44:56', NULL),
-(3, 'Programacao java', '2023-01-26 17:45:09', '2023-01-26 17:45:09', NULL);
+(3, 'Programacao java', '2023-01-26 17:45:09', '2023-01-26 17:45:09', NULL),
+(4, 'TFC', '2023-01-26 22:14:41', '2023-01-26 22:14:41', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `edicaos`
+--
+
+CREATE TABLE `edicaos` (
+  `id` bigint NOT NULL,
+  `edicao` varchar(20) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `edicaos`
+--
+
+INSERT INTO `edicaos` (`id`, `edicao`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'I', '2023-01-26 21:02:53', '2023-01-26 21:02:53', NULL),
+(2, 'II', '2023-01-26 21:02:53', '2023-01-26 21:02:53', NULL),
+(3, 'III', '2023-01-26 21:03:08', '2023-01-26 21:03:08', NULL),
+(4, 'IV', '2023-01-26 21:03:08', '2023-01-26 21:03:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -97,7 +122,7 @@ CREATE TABLE `livros` (
   `titulo` text NOT NULL,
   `resumo` text NOT NULL,
   `edicao` bigint NOT NULL,
-  `ano_lacamento` year NOT NULL,
+  `ano_publicado` year NOT NULL,
   `capa` text NOT NULL,
   `caminho_livro` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -314,6 +339,12 @@ ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `edicaos`
+--
+ALTER TABLE `edicaos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -414,7 +445,13 @@ ALTER TABLE `autors`
 -- AUTO_INCREMENT de tabela `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `edicaos`
+--
+ALTER TABLE `edicaos`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `failed_jobs`

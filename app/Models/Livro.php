@@ -11,7 +11,7 @@ class Livro extends Model
     use HasFactory,SoftDeletes;
 
     protected $table = "livros";
-    protected $fillable = ['categoria_id','autor_id','titulo','resumo','edicao','ano_lacamento','capa','caminho_livro'];
+    protected $fillable = ['categoria_id','autor_id','titulo','resumo','edicao','ano_publicado','capa','caminho_livro'];
 
     function getCategoria(){
         return $this->belongsTo(Categoria::class, 'categoria_id', 'id');

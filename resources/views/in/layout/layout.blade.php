@@ -96,6 +96,8 @@
                             <li><a href="{{route("biblioteca.autor.listarautores")}}">Autores</a></li>
                             <li><a href="{{ route('biblioteca.categorias.listarcategorias') }}">Categorias do
                                     material</a></li>
+                            <li><a href="{{ route('biblioteca.livro.listlivro') }}">Listar Livros</a></li>
+                            <li><a href="{{ route('biblioteca.livro.createlivro') }}">Adicioanr Livros</a></li>
                         </ul>
                     </li>
                     <li>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ControllerLivro;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +39,11 @@ Route::middleware("auth")->group(function () {
         Route::prefix("autor")->name("autor.")->group(function () {
             Route::get("/", [AutorController::class, 'listarautores'])->name("listarautores");
             Route::post("addautor", [AutorController::class, 'addautor'])->name("addautor");
-
+        });
+        Route::prefix('livros')->name('livro.')->group(function(){
+            Route::get("/", [ControllerLivro::class, 'listlivro'])->name("listlivro");
+            Route::get("/adicionar", [ControllerLivro::class, 'createlivro'])->name("createlivro");
+            Route::post('salvar/livro', [ControllerLivro::class, 'salvarlivro'])->name("salvarlivro");
         });
     });
 });
